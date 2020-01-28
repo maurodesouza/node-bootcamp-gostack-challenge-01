@@ -1,3 +1,9 @@
-const express = require('express')();
+const express = require('express');
 
-express.listen(5656)
+const app = express();
+
+app.use(express.json());
+
+require('./controller/project')(app);
+
+app.listen(5656);

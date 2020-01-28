@@ -5,6 +5,10 @@ const TaskSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  project: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  }
 });
 
 const Task = mongoose.model('Taks', TaskSchema);
