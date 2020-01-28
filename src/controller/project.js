@@ -35,4 +35,17 @@ router.get('/project', async (req, res) => {
   }
 })
 
+router.get('/project/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const project = await Project.findById(id)
+      .populate(['task']);
+    return res.send({ project });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).send({ error: 'Fail on get project' });
+  }
+})
+
 module.exports = (app) => app.use('/', router);
