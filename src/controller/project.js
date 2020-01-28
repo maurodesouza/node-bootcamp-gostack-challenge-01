@@ -25,4 +25,14 @@ router.post('/project', async (req, res) => {
   }
 })
 
+router.get('/project', async (req, res) => {
+  try {
+    const projects = await Project.find();
+
+    return res.send({ projects });
+  } catch (err) {
+    return res.status(400).send({ error: 'Fail on get all project' });
+  }
+})
+
 module.exports = (app) => app.use('/', router);
