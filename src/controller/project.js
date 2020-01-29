@@ -48,4 +48,30 @@ router.get('/project/:id', async (req, res) => {
   }
 })
 
+router.put('/project/:id', async (req, res) => {
+  const { title, task } = req.body;
+  const { id } = req.params;
+
+  try {
+
+    const project = await Project.findByIdAndUpdate(id, { title }, { new: true });
+
+    project.task = [];
+
+    await Task.deleteMany({ project: project._id });
+
+    await Promise.all(task.map(async task => {
+      const newTask = await Task.create({ title: task, project: project._id });
+      newTask.save();
+      project.task.push(newTask);
+    }))
+
+    project.save();
+
+    return res.send({ project });
+  } catch (err) {
+    return res.status(400).send({ error: 'Fail on update project' });
+  }
+})
+
 module.exports = (app) => app.use('/', router);
