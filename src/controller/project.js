@@ -41,9 +41,9 @@ router.get('/project/:id', async (req, res) => {
   try {
     const project = await Project.findById(id)
       .populate(['task']);
+
     return res.send({ project });
   } catch (err) {
-    console.log(err);
     return res.status(400).send({ error: 'Fail on get project' });
   }
 })
@@ -58,10 +58,10 @@ router.put('/project/:id', async (req, res) => {
 
     project.task = [];
 
-    await Task.deleteMany({ project: project._id });
+    await Task.deleteMany({ project: id});
 
     await Promise.all(task.map(async task => {
-      const newTask = await Task.create({ title: task, project: project._id });
+      const newTask = await Task.create({ title: task, project: id });
       newTask.save();
       project.task.push(newTask);
     }))
@@ -73,5 +73,18 @@ router.put('/project/:id', async (req, res) => {
     return res.status(400).send({ error: 'Fail on update project' });
   }
 })
+
+router.delete('/project/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await Project.findByIdAndDelete(id);
+    await Task.deleteMany({ project: id });
+
+    return res.send();
+  } catch (err) {
+    return res.status(400).send({ error: 'Fail on delete project' });
+  };
+});
 
 module.exports = (app) => app.use('/', router);
