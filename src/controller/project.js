@@ -3,7 +3,7 @@ const router = require('express').Router();
 const Project = require('../model/project');
 const Task = require('../model/task');
 
-
+const checkExistId = require('../middleware/checkExistId');
 
 router.post('/project', async (req, res) => {
   const { title, task } = req.body;
@@ -35,11 +35,11 @@ router.get('/project', async (req, res) => {
   }
 })
 
-router.get('/project/:id', async (req, res) => {
-  const { id } = req.params;
+router.get('/project/:id', checkExistId, async (req, res) => {
+  const { projectId } = req;
 
   try {
-    const project = await Project.findById(id)
+    const project = await Project.findById(projectId)
       .populate(['task']);
 
     return res.send({ project });
@@ -48,20 +48,20 @@ router.get('/project/:id', async (req, res) => {
   }
 })
 
-router.put('/project/:id', async (req, res) => {
+router.put('/project/:id', checkExistId, async (req, res) => {
   const { title, task } = req.body;
-  const { id } = req.params;
+  const { projectId } = req;
 
   try {
 
-    const project = await Project.findByIdAndUpdate(id, { title }, { new: true });
+    const project = await Project.findByIdAndUpdate(projectId, { title }, { new: true });
 
     project.task = [];
 
-    await Task.deleteMany({ project: id});
+    await Task.deleteMany({ project: projectId});
 
     await Promise.all(task.map(async task => {
-      const newTask = await Task.create({ title: task, project: id });
+      const newTask = await Task.create({ title: task, project: projectId });
       newTask.save();
       project.task.push(newTask);
     }))
@@ -74,12 +74,12 @@ router.put('/project/:id', async (req, res) => {
   }
 })
 
-router.delete('/project/:id', async (req, res) => {
-  const { id } = req.params;
+router.delete('/project/:id', checkExistId, async (req, res) => {
+  const { projectId } = req;
 
   try {
-    await Project.findByIdAndDelete(id);
-    await Task.deleteMany({ project: id });
+    await Project.findByIdAndDelete(projectId);
+    await Task.deleteMany({ project: projectId });
 
     return res.send();
   } catch (err) {
