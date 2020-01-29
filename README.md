@@ -24,7 +24,7 @@
 
 <p align="center">
   <a href="#rocket-About-the-challenge">About the challenge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#tada-Features" >Features</a>
+  <a href="#tada-Features" >Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-License">License</a>
 </p>
 
@@ -34,10 +34,13 @@ Create an application to store projects and their tasks using [Express](https://
 
 ## :tada: Features
 
-[Express](https://expressjs.com/pt-br/)
-[Mongoose](https://mongoosejs.com)
-[Nodemon](https://www.npmjs.com/package/nodemon)
-[MongoDB](https://www.mongodb.com)
+- [Express](https://expressjs.com/pt-br/)
+
+- [Mongoose](https://mongoosejs.com)
+
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+
+- [MongoDB](https://www.mongodb.com)
 
 ## :memo: License
 
