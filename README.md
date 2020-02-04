@@ -8,44 +8,33 @@
 
 <blockquote align="center">“Sua única limitação é você mesmo”!</blockquote>
 
-<p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rocketseat/bootcamp-gostack-desafio-01?color=%2304D361">
-
-  <a href="https://rocketseat.com.br">
-    <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%2304D361">
-  </a>
-
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
-
-  <a href="https://github.com/Rocketseat/bootcamp-gostack-desafio-01/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/rocketseat/bootcamp-gostack-desafio-01?style=social">
-  </a>
-</p>
 
 <p align="center">
-  <a href="#rocket-About-the-challenge">About the challenge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#tada-Features" >Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-License">License</a>
+  <a href="#fire-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-tecnologias-usadas" > Tecnologias usadas </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license"> License </a>
 </p>
 
-## :rocket: About the challenge
+## :fire: Sobre o desafio
 
-Create an application to store projects and their tasks using [Express](https://expressjs.com/pt-br/).
+Criar uma aplicação para armazenar projetos utilizando [Node](https://nodejs.org) e usando o sistema CRUD.
 
-## :tada: Features
+Para saber mais sobre o desafio :point_right: [Clique Aqui](https://github.com/Rocketseat/bootcamp-gostack-desafio-01/blob/master/README.md#desafio-01-conceitos-do-nodejs) :point_left:
+
+## :rocket: Tecnologias usadas
 
 - [Express](https://expressjs.com/pt-br/)
 
-- [Mongoose](https://mongoosejs.com)
-
 - [Nodemon](https://www.npmjs.com/package/nodemon)
+
+- [Mongoose](https://mongoosejs.com)
 
 - [MongoDB](https://www.mongodb.com)
 
 ## :memo: License
 
-This project is under MIT license. See the file [LICENSE](LICENSE.md) for more details.
+Esse projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ---
 
-Made with :heart: by Mauro de Souza 
+Feito com :heart: by Mauro de Souza - Email: maurodesouza2017@hotmail.com
